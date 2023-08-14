@@ -60,13 +60,14 @@ a {
 }
 
 a:hover {
+  text-decoration: none;
   color: var(--orange);
 }
 
 /** Gradient separator */
 .gradient-separator {
   height: 2px;
-  width: 100vw;
+  margin-inline: auto;
   background-image: linear-gradient(90deg, var(--orange), var(--lightcyan));
 }
 
@@ -255,7 +256,7 @@ header h1 {
     justify-content: space-between;
     align-items: center;
     margin-inline: auto;
-    gap: 8%;
+    gap: 10%;
   }
 
   header h1 {
@@ -269,6 +270,7 @@ header h1 {
 
   .desktop-nav {
     display: inline;
+    margin-right: 30px;
   }
 
   .desktop-nav nav ul {
@@ -277,7 +279,7 @@ header h1 {
     align-items: center;
     gap: 2rem;
     padding-top: 5px;
-    margin-right: 20px;
+    /* margin-right: 20px; */
     font-size: 85%;
   }
 
@@ -287,7 +289,6 @@ header h1 {
 }
 
 /** Intro */
-
 #intro {
   max-width: 1200px;
   margin: 0 auto;
@@ -363,7 +364,7 @@ header h1 {
 
 @media (max-width: 450px) {
   #contact {
-    width: 100vw;
+    width: 90%;
   }
 }
 
@@ -408,5 +409,5 @@ header h1 {
 
 #footer li a {
   text-decoration: none;
-  font-size: 250%;
+  font-size: 200%;
 }
