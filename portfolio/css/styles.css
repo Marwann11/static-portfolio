@@ -21,3 +21,392 @@
   font-family: "Oxygen mono";
   src: url(../fonts/Oxygen_Mono/OxygenMono-Regular.ttf);
 }
+
+/* General rules */
+
+:root {
+  --darkblue: #293241;
+  --orange: #ee6b4d;
+  --darkorange: #ca5e46;
+  --blue: #2b568d;
+  --lightblue: #3676a0;
+  --lightcyan: #b1f1f5;
+  --white: #fff;
+  --font-size: 1.3rem;
+  --sans: Oxygen, sans-serif;
+  --mono: "Oxygen mono", monospace;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font: var(--font-size) var(--sans);
+  background-color: var(--darkblue);
+  color: var(--white);
+}
+
+a {
+  color: var(--darkorange);
+}
+
+a:hover {
+  color: var(--orange);
+}
+
+/** Gradient separator */
+.gradient-separator {
+  height: 2px;
+  width: 100vw;
+  background-image: linear-gradient(90deg, var(--orange), var(--lightcyan));
+}
+
+/** Navigation */
+
+/* general rules */
+header {
+  margin-bottom: 8rem;
+}
+
+header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+header a {
+  display: block;
+  text-decoration: none;
+  color: var(--white);
+}
+
+header a:hover span[class*="fa-"] {
+  color: var(--orange);
+}
+
+header a [class*="fa-"] {
+  color: var(--lightcyan);
+}
+
+header h1 {
+  font-weight: bold;
+}
+
+header h1 [class*="fa-"] {
+  font-size: 90%;
+}
+
+nav ul {
+  font: var(--font-size) var(--mono); 
+}
+
+.mobile-nav #nav-mob li:last-child a,
+.desktop-nav li:last-child a {
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: var(--orange);
+}
+
+.mobile-nav #nav-mob li:last-child:hover a {
+  color: var(--white);
+}
+
+@media (min-width: 851px) {
+  .desktop-nav li:last-child a {
+    background-color: var(--darkorange);
+  }
+
+  .desktop-nav li:last-child:hover a {
+    color: var(--white);
+    background-color: var(--orange);
+  }
+}
+
+/* initial start point -> mobile */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 60px;
+  max-width: 1200px;
+  font-size: clamp(10px, 2vw ,20px);
+}
+
+header h1 {
+  margin-left: 10px;
+}
+
+.desktop-nav {
+  display: none;
+}
+
+.mobile-nav--open,
+.mobile-nav--close {
+  font-size: 1.8rem;
+}
+
+#nav-mob {
+  background-color: var(--blue);
+  position: absolute;
+  z-index: 10;
+  top: 10px;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* initial state */
+  transform: translateY(-150%);
+  transition: transform 0.3s ease-out;
+}
+
+#nav-mob ul li {
+  margin: 8vh auto;
+  text-align: center;
+  font-family: var(--mono);
+  position: relative;
+}
+
+#nav-mob ul li:not(:last-child):after {
+  content: "";
+  background-image: linear-gradient(90deg, var(--orange), var(--lightcyan));
+  width: 200%;
+  height: 2px;
+  position: absolute;
+  bottom: -65%;
+  left: -50%;
+}
+
+#nav-mob ul li [class*="fa-"] {
+  font-size: 150%;
+}
+
+.mobile-nav--open {
+  margin-inline: 5vw;
+}
+
+#nav-mob .mobile-nav--close {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+/* show mobile nav on icon click */
+#nav-mob:target {
+  transform: translateY(-10px);
+}
+
+.mobile-nav #nav-mob li:last-child a {
+  padding: 15px;
+}
+
+/* Tablets */
+@media (min-width: 550px) and (max-width: 850px) {
+  header {
+    display: grid;
+    justify-content: stretch;
+  }
+
+  header h1 {
+    text-align: center;
+    font-size: clamp(20px, 3vw ,30px);
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: inline;
+    text-align: center;
+  }
+
+  .desktop-nav nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+    font-size: 120%;
+  }
+
+  .desktop-nav [class*="fa-"] {
+    font-size: 150%;
+  }
+}
+
+/* Desktop */
+@media (min-width: 851px) {
+  header {
+    min-height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: auto;
+    gap: 8%;
+  }
+
+  header h1 {
+    margin-left: 20px;
+    font-size: var(--font-size);
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: inline;
+  }
+
+  .desktop-nav nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 5px;
+    margin-right: 20px;
+    font-size: 85%;
+  }
+
+  .desktop-nav nav ul [class*="fa-"] {
+    font-size: 140%;
+  }
+}
+
+/** Intro */
+
+#intro {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 10rem;
+}
+
+#intro p {
+  font-size: 80%;
+  line-height: 160%;
+}
+
+.name {
+  font-family: var(--mono);
+}
+
+.name span {
+  display: block;
+  margin-top: 30px;
+  font-family: var(--sans);
+  color: var(--lightcyan);
+}
+
+@media (max-width: 549px) {
+  #intro {
+    padding-inline: 10px;
+  }
+
+  .name span,
+  #intro h2 {
+    font-size: 2.25rem;
+  }
+
+  #intro p {
+    font-size: 70%;
+  }
+}
+
+@media (min-width: 550px) and (max-width: 850px) {
+  #intro {
+    padding-inline: 5%;
+  }
+
+  .name span,
+  #intro h2  {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 851px) {
+  #intro {
+    padding-inline: 20px;
+  }
+
+  .name span,
+  #intro h2  {
+    font-size: 4rem;
+  }
+}
+
+/** Contact  */
+.contact-bkg {
+  background-color: var(--lightblue);
+  color: var(--white);
+}
+
+#contact {
+  text-align: center;
+  margin: 0 auto;
+  width: 400px;
+  padding-block: 2rem;
+  font-family: var(--sans);
+}
+
+@media (max-width: 450px) {
+  #contact {
+    width: 100vw;
+  }
+}
+
+#contact h2 {
+  margin: 0;
+  padding: 0;
+}
+
+#contact p {
+  line-height: 170%;
+}
+
+#contact p:last-child {
+  margin-top: 3rem;
+}
+
+#contact a {
+  text-decoration: none;
+  color: var(--white);
+  background-color: var(--darkorange);
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+#contact a:hover {
+  background-color: var(--orange);
+}
+
+/** Footer */
+#footer {
+  text-align: center;
+}
+
+#footer ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+#footer li a {
+  text-decoration: none;
+  font-size: 250%;
+}
