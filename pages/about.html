@@ -4,16 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marwan Ghanem</title>
+  <title>About</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
-  <header>
+  <header class="header--less-margin">
     <!-- Portfolio logo -->
     <h1>
-      <a href="index.html">
+      <a href="../index.html">
         <span class="fa-solid fa-code" aria-hidden="true"></span>
         <span>Marwan Ghanem</span>
       </a>
@@ -26,9 +26,9 @@
       </a>
       <nav id="nav-mob">
         <ul>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="pages/about.html">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
           <li>
             <a href="https://www.linkedin.com" target="_blank">
               <span class="fa-brands fa-linkedin-in" aria-hidden="true"></span>
@@ -57,9 +57,9 @@
     <span class="desktop-nav">
       <nav>
         <ul>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="pages/about.html">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
           <li>
             <a href="https://www.linkedin.com" target="_blank">
               <span class="fa-brands fa-linkedin-in" aria-hidden="true"></span>
@@ -81,102 +81,29 @@
       </nav>
     </span>
   </header>
-  <section id="intro">
-    <p class="name">Hi, my name is <span>Marwan Ghanem</span></p>
-    <h2>I develop the web</h2>
-    <p>I'm a developer specializing in HTML, CSS, JS and Responsive designs</p>
-    <p>
-      Currently, I'm studying "Getting started with CSS" by Jen Kramer on
-      <a href="https://frontendmasters.com/courses/getting-started-css">
-        Frontend masters
-      </a>
-    </p>
-  </section>
-  <div class="gradient-separator"></div>
-  <section id="projects" class="section-alt--color sect-img-text--overlap">
-    <h2>Projects I'm proud of</h2>
+  <section id="about" class="sect-img-text--overlap">
+    <h2 class="header--less-size">About Marwan Ghanem</h2>
     <article>
       <div class="img-text">
-        <h3>
-          Latest Project <span>Wall of Wonder</span>
-        </h3>
-        <p>
+        <h3><span>Just the highlights</span></h3>
+        <p class="paragraph-alt--color">
           Description of the project. This should be fairly concise while also describing the key components that you
           developed or worked on. It can be as long as you need it to be but should at least be a few sentences long. Be
-          sure to include specific links anywhere in the description. A link looks like <a href="#">this</a>, and multiple links look like
+          sure to include specific links anywhere in the description. A link looks like <a href="#">this</a>, and
+          multiple links look like
           <a href="#">this</a> and <a href="#">like this</a>.
         </p>
-        <h4>Technologies used include:</h4>
+        <h4>My favorite technologies include:</h4>
         <ul>
           <li>HTML</li>
           <li>CSS</li>
-          <li>SVG</li>
-        </ul>
-      </div>
-      <img 
-        src="https://assets.codepen.io/296057/fem-gettingstartedcss-ch5-1.png" 
-        alt="Wall of wonder project"
-        >
-    </article>
-    <article>
-      <div class="img-text">
-        <h3>
-          Bootcamp Project <span>Feed-A-Star-Mole Game</span>
-        </h3>
-        <p>
-          Description of the project. This should be fairly concise while also describing the key components that you
-          developed or worked on. It can be as long as you need it to be but should at least be a few sentences long. Be
-          sure to include specific links anywhere in the description. A link looks like <a href="#">this</a>, and multiple links look like
-          <a href="#">this</a> and <a href="#">like this</a>.
-        </p>
-        <h4>Technologies used include:</h4>
-        <ul>
-          <li>HTML</li>
-          <li>CSS</li>
+          <li>SASS</li>
           <li>JavaScript</li>
         </ul>
       </div>
-      <img 
-        src="https://assets.codepen.io/296057/fem-gettingstartedcss-ch5-5.png" 
-        alt="Feed a star mole project"
-        >
-    </article>
-    <article>
-      <div class="img-text">
-        <h3>
-          Photography Project <span>Wall of Wonder Collection</span>
-        </h3>
-        <p>
-          Description of the project. This should be fairly concise while also describing the key components that you
-          developed or worked on. It can be as long as you need it to be but should at least be a few sentences long. Be
-          sure to include specific links anywhere in the description. A link looks like <a href="#">this</a>, and multiple links look like
-          <a href="#">this</a> and <a href="#">like this</a>.
-        </p>
-        <h4>Technologies used include:</h4>
-        <ul>
-          <li>HTML</li>
-          <li>CSS Grid</li>
-        </ul>
-      </div>
-      <img 
-        src="https://assets.codepen.io/296057/fem-gettingstartedcss-ch5-4.png" 
-        alt="Wall of Wonder Collection project"
-        >
+      <img src="../images/coding.jpg" alt="minimalistic coding environment">
     </article>
   </section>
-  <div class="gradient-separator"></div>
-  <div>
-    <section id="contact">
-      <h2>Contact me</h2>
-      <p>
-        I'm always interested in hearing about new projects or even dropping
-        for a chat over web development.
-      </p>
-      <p>
-        <a href="mailto:">Email me</a>
-      </p>
-    </section>
-  </div>
   <div class="gradient-separator"></div>
   <footer id="footer" class="section-alt--color">
     <h2>Marwan Ghanem &middot; Developer</h2>
@@ -188,7 +115,7 @@
         </a>
       </li>
       <li>
-        <a href="https://www.github.com"">
+        <a href="https://www.github.com">
           <span class="sr-only">GitHub</span>
           <span class="fa-brands fa-github" aria-hidden="true"></span>
         </a>

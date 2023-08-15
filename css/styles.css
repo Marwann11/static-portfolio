@@ -27,8 +27,8 @@
 :root {
   --dkblue: #293241;
   --blue: #3d5a80;
-  --lightorange: #ff7253;
-  --orange: #ca5f47;
+  --lightorange: #ee6c4d;
+  --orange: #d15f42;
   --lightcyan: #b1f1f5;
   --white: #fff;
   --font-size: 1.3rem;
@@ -68,6 +68,10 @@ img {
   width: 100%;
 }
 
+.section-alt--color {
+  background-color: var(--blue);
+}
+
 /** Gradient separator */
 .gradient-separator {
   height: 2px;
@@ -79,6 +83,17 @@ img {
 /* general rules */
 header {
   margin-bottom: 8rem;
+  padding-top: 1rem;
+}
+
+.header--less-margin {
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 1250px) {
+  .header--less-margin {
+    margin-left: 1rem;
+  }
 }
 
 header ul {
@@ -102,6 +117,8 @@ header a [class*="fa-"] {
 }
 
 header h1 {
+  padding: 0;
+  margin: 0;
   font-weight: bold;
 }
 
@@ -233,7 +250,7 @@ header h1 {
     align-items: center;
     gap: 2rem;
     padding: 1rem;
-    font-size: 120%;
+    font-size: 1rem;
   }
 
   .desktop-nav [class*="fa-"] {
@@ -249,11 +266,10 @@ header h1 {
     justify-content: space-between;
     align-items: center;
     margin-inline: auto;
-    gap: 10%;
+    gap: 8%;
   }
 
   header h1 {
-    margin-left: 20px;
     font-size: var(--font-size);
   }
 
@@ -340,49 +356,53 @@ header h1 {
   }
 }
 
-/** Projects  */
+/** Projects and About  */
 
 /* Mobile layout */
-#projects {
+.sect-img-text--overlap {
   padding: 4rem 2rem 2rem;
-  background-color: var(--blue);
 }
 
-#projects article {
+.sect-img-text--overlap article {
   margin-bottom: 4rem;
 }
 
-#projects h2,
-.project-text h3,
-.project-text h4 {
+.sect-img-text--overlap h2 {
   padding: 0;
   margin: 0;
-}
-
-#projects h2 {
-  font-size: 2.5rem;
   margin-bottom: 4rem;
+  font-size: 2rem;
 }
 
-.project-text h3,
-.project-text h4 {
+.sect-img-text--overlap .header--less-size {
+  font-size: clamp(1.2rem, 6vw ,2rem);
+}
+
+.img-text h3,
+.img-text h4 {
+  padding: 0;
+  margin: 0;
   font: bold clamp(0.8rem, 1.5vw, 1rem) var(--mono);
 }
 
-.project-text h3 span {
+.img-text h3 span {
   display: block;
   color: var(--lightcyan);
   font: bold clamp(1.2rem, 2.5vw, 2rem) var(--sans);
 }
 
-.project-text p {
+.img-text p {
   background-color: var(--dkblue);
   font-size: clamp(0.8rem, 2vw, 1rem);
   padding: 1rem;
   border-radius: 15px;
 }
 
-.project-text ul {
+.sect-img-text--overlap .paragraph-alt--color {
+  background-color: var(--blue);
+}
+
+.img-text ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -392,7 +412,7 @@ header h1 {
   font-size: 1rem;
 }
 
-#projects img {
+.sect-img-text--overlap img {
   padding: 10px;
   border-left: 2px solid var(--lightcyan);
   border-top: 2px solid var(--lightcyan);
@@ -401,68 +421,63 @@ header h1 {
 
 /* Desktop Layout */
 @media (min-width: 550px) {
-  #projects article {
+  .sect-img-text--overlap article {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 1rem;
   }
 
-  #projects article,
-  #projects h2 {
+  .sect-img-text--overlap article,
+  .sect-img-text--overlap h2 {
     max-width: 1200px;
     margin-inline: auto;
   }
 
-  .project-text p {
+  .img-text p {
     font-size: clamp(0.6rem, 1.6vw, 1rem);
   }
 
-  .project-text ul {
+  .img-text ul {
     justify-content: flex-end;
   }
 
   /* alternate layout */
 
-  /* left to right */
-  #projects article:nth-child(even) .project-text {
+  /* right to left */
+  .sect-img-text--overlap article:nth-child(even) .img-text {
     order: 1;
     text-align: right;
     grid-column: 5/11;
     grid-row: 1/2;
   }
 
-  #projects article:nth-child(even) .project-text p {
+  .sect-img-text--overlap article:nth-child(even) .img-text p {
     text-align: left;
   }
 
-  #projects article:nth-child(even) img {
+  .sect-img-text--overlap article:nth-child(even) img {
     grid-column: 1/6;
     grid-row: 1/2;
   }
 
-  /* right to left */
-  #projects article:nth-child(odd) .project-text {
+  /* left to right */
+  .sect-img-text--overlap article:nth-child(odd) .img-text {
     z-index: 1;
     grid-column: 1/7;
     grid-row: 1/2;
   }
 
-  #projects article:nth-child(odd) img {
+  .sect-img-text--overlap article:nth-child(odd) img {
     grid-column: 6/11;
     grid-row: 1/2;
   }
 
-  #projects article:nth-child(odd) .project-text ul {
+  .sect-img-text--overlap article:nth-child(odd) .img-text ul {
     justify-content: flex-start;
   }
 }
 
 /** Contact  */
-.contact-bkg {
-  background-color: var(--dkblue);
-  color: var(--white);
-}
-
 #contact {
   text-align: center;
   margin: 0 auto;
@@ -506,7 +521,6 @@ header h1 {
 
 /** Footer */
 footer {
-  background-color: var(--blue);
   padding-block: 1.5rem;
   font-size: 75%;
   text-align: center;
@@ -525,7 +539,7 @@ footer ul {
 }
 
 footer h2 {
-  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
 }
 
 footer ul {
@@ -533,10 +547,17 @@ footer ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 20px;
+  border-radius: 20px;
+  margin-inline: auto;
+  background-color: var(--dkblue);
 }
 
 footer li a {
   text-decoration: none;
-  font-size: 200%;
+  font-size: 180%;
 }
