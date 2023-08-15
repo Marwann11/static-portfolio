@@ -253,6 +253,10 @@ header h1 {
     font-size: 1rem;
   }
 
+  .desktop-nav nav ul a:last-child:hover {
+    color: var(--white);
+  }
+
   .desktop-nav [class*="fa-"] {
     font-size: 150%;
   }
