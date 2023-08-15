@@ -25,11 +25,10 @@
 /* General rules */
 
 :root {
-  --darkblue: #293241;
-  --orange: #ee6b4d;
-  --darkorange: #ca5e46;
-  --blue: #2b568d;
-  --lightblue: #386caf;
+  --dkblue: #293241;
+  --blue: #3d5a80;
+  --lightorange: #ff7253;
+  --orange: #ca5f47;
   --lightcyan: #b1f1f5;
   --white: #fff;
   --font-size: 1.3rem;
@@ -39,6 +38,7 @@
 
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -51,17 +51,17 @@ body {
   padding: 0;
   margin: 0;
   font: var(--font-size) var(--sans);
-  background-color: var(--darkblue);
+  background-color: var(--dkblue);
   color: var(--white);
 }
 
 a {
-  color: var(--darkorange);
+  color: var(--orange);
 }
 
 a:hover {
   text-decoration: none;
-  color: var(--orange);
+  color: var(--lightorange);
 }
 
 img {
@@ -71,7 +71,7 @@ img {
 /** Gradient separator */
 .gradient-separator {
   height: 2px;
-  background-image: linear-gradient(90deg, var(--orange), var(--lightcyan));
+  background-image: linear-gradient(90deg, var(--lightorange), var(--lightcyan));
 }
 
 /** Navigation */
@@ -94,7 +94,7 @@ header a {
 }
 
 header a:hover span[class*="fa-"] {
-  color: var(--orange);
+  color: var(--lightorange);
 }
 
 header a [class*="fa-"] {
@@ -118,7 +118,7 @@ nav ul {
   padding: 10px;
   border-radius: 5px;
   font-weight: bold;
-  background-color: var(--orange);
+  background-color: var(--lightorange);
 }
 
 .mobile-nav #nav-mob li:last-child:hover a {
@@ -127,12 +127,12 @@ nav ul {
 
 @media (min-width: 851px) {
   .desktop-nav li:last-child a {
-    background-color: var(--darkorange);
+    background-color: var(--orange);
   }
 
   .desktop-nav li:last-child:hover a {
     color: var(--white);
-    background-color: var(--orange);
+    background-color: var(--lightorange);
   }
 }
 
@@ -160,8 +160,8 @@ header h1 {
 }
 
 #nav-mob {
-  background-color: var(--blue);
-  position: absolute;
+  background-color: var(--dkblue);
+  position: fixed;
   z-index: 10;
   top: 10px;
   right: 0;
@@ -183,18 +183,8 @@ header h1 {
   position: relative;
 }
 
-#nav-mob ul li:not(:last-child):after {
-  content: "";
-  background-image: linear-gradient(90deg, var(--orange), var(--lightcyan));
-  width: 200%;
-  height: 2px;
-  position: absolute;
-  bottom: -65%;
-  left: -50%;
-}
-
 #nav-mob ul li [class*="fa-"] {
-  font-size: 150%;
+  font-size: 175%;
 }
 
 .mobile-nav--open {
@@ -282,7 +272,6 @@ header h1 {
     align-items: center;
     gap: 2rem;
     padding-top: 5px;
-    /* margin-right: 20px; */
     font-size: 85%;
   }
 
@@ -355,39 +344,40 @@ header h1 {
 
 /* Mobile layout */
 #projects {
-  padding: 4rem 1rem 10rem;
-  background-color: var(--lightblue);
+  padding: 4rem 2rem 2rem;
+  background-color: var(--blue);
 }
 
-.project-text h2,
+#projects article {
+  margin-bottom: 4rem;
+}
+
+#projects h2,
 .project-text h3,
 .project-text h4 {
   padding: 0;
   margin: 0;
 }
 
-.project-text h2 {
+#projects h2 {
   font-size: 2.5rem;
+  margin-bottom: 4rem;
 }
 
 .project-text h3,
 .project-text h4 {
-  font: bold 1rem var(--mono);
-}
-
-.project-text h3 {
-  margin-top: 3rem;
+  font: bold clamp(0.8rem, 1.5vw, 1rem) var(--mono);
 }
 
 .project-text h3 span {
   display: block;
   color: var(--lightcyan);
-  font: bold 1.75rem var(--sans);
+  font: bold clamp(1.2rem, 2.5vw, 2rem) var(--sans);
 }
 
 .project-text p {
-  background-color: var(--darkblue);
-  font-size: 1rem;
+  background-color: var(--dkblue);
+  font-size: clamp(0.8rem, 2vw, 1rem);
   padding: 1rem;
   border-radius: 15px;
 }
@@ -396,13 +386,13 @@ header h1 {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  margin-bottom: 2rem;
   display: flex;
   gap: 1rem;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 #projects img {
-  margin: 2rem 0;
   padding: 10px;
   border-left: 2px solid var(--lightcyan);
   border-top: 2px solid var(--lightcyan);
@@ -412,25 +402,23 @@ header h1 {
 /* Desktop Layout */
 @media (min-width: 550px) {
   #projects article {
-    max-width: 1200px;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    align-items: flex-end;
     gap: 1rem;
   }
 
+  #projects article,
   #projects h2 {
     max-width: 1200px;
-    margin: 0 auto;
+    margin-inline: auto;
+  }
+
+  .project-text p {
+    font-size: clamp(0.6rem, 1.6vw, 1rem);
   }
 
   .project-text ul {
     justify-content: flex-end;
-  }
-
-  .project-text p {
-    font-size: clamp(0.6rem, 1.5vw, 1.3rem);
   }
 
   /* alternate layout */
@@ -443,11 +431,15 @@ header h1 {
     grid-row: 1/2;
   }
 
+  #projects article:nth-child(even) .project-text p {
+    text-align: left;
+  }
+
   #projects article:nth-child(even) img {
     grid-column: 1/6;
     grid-row: 1/2;
-    align-self: flex-end;
   }
+
   /* right to left */
   #projects article:nth-child(odd) .project-text {
     z-index: 1;
@@ -458,7 +450,6 @@ header h1 {
   #projects article:nth-child(odd) img {
     grid-column: 6/11;
     grid-row: 1/2;
-    align-self: flex-end;
   }
 
   #projects article:nth-child(odd) .project-text ul {
@@ -468,7 +459,7 @@ header h1 {
 
 /** Contact  */
 .contact-bkg {
-  background-color: var(--lightblue);
+  background-color: var(--dkblue);
   color: var(--white);
 }
 
@@ -502,7 +493,7 @@ header h1 {
 #contact a {
   text-decoration: none;
   color: var(--white);
-  background-color: var(--darkorange);
+  background-color: var(--orange);
   padding: 10px;
   font-weight: bold;
   font-family: var(--mono);
@@ -510,15 +501,34 @@ header h1 {
 }
 
 #contact a:hover {
-  background-color: var(--orange);
+  background-color: var(--lightorange);
 }
 
 /** Footer */
-#footer {
+footer {
+  background-color: var(--blue);
+  padding-block: 1.5rem;
+  font-size: 75%;
   text-align: center;
 }
 
-#footer ul {
+footer h2,
+footer ul,
+footer p {
+  padding: 0;
+  margin: 0;
+}
+
+footer h2,
+footer ul {
+  margin-bottom: 1rem;
+}
+
+footer h2 {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+}
+
+footer ul {
   list-style-type: none;
   display: flex;
   justify-content: center;
@@ -526,7 +536,7 @@ header h1 {
   gap: 2rem;
 }
 
-#footer li a {
+footer li a {
   text-decoration: none;
   font-size: 200%;
 }
